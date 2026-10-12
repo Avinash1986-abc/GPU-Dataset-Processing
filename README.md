@@ -74,6 +74,20 @@ xychart-beta
     bar [84.77, 115.56, 159.72, 105.59]
 ```
 
+
+## Sequential CPU vs CUDA Comparison Table
+
+| Dataset Size | Sequential CPU Time (s) | CUDA Time (s) | Speedup |
+|---:|---:|---:|---:|
+| 100K | 0.00037482 | 0.00044192 | 0.85× |
+| 500K | 0.00210569 | 0.00182208 | 1.16× |
+| 1M | 0.00515975 | 0.00323046 | 1.60× |
+| 2M | 0.00750882 | 0.00711136 | 1.06× |
+
+**Observation:** CUDA was slower for the 100K dataset but achieved better performance for the 500K, 1M, and 2M datasets. The highest speedup was approximately **1.60× for 1M elements**.
+
+*Note: CPU time measures the sequential summation loop, while CUDA time measures kernel execution. Dataset generation and host-device transfers are excluded, so the timings do not represent the complete end-to-end processing time.*
+
 ## Key Findings
 
 - CUDA performance was compared with sequential CPU execution for different dataset sizes.
